@@ -1,6 +1,6 @@
-# 📋 Gestor de Tarefas Multi-Usuário (Grupo 7)
+# Gestor de Tarefas Multi-Usuário (Grupo 7)
 
-## 📖 Descrição
+## Descrição
 
 Este projeto consiste em um sistema distribuído de gestão de tarefas (To-Do List) multi-usuário, desenvolvido no âmbito da disciplina de Sistemas Distribuídos.
 
@@ -8,7 +8,7 @@ O sistema permite que vários clientes adicionem, listem e removam tarefas em te
 
 ---
 
-## 🎯 Objetivos
+## Objetivos
 
 * Implementar um sistema distribuído com múltiplos clientes
 * Utilizar gRPC para operações CRUD
@@ -18,9 +18,9 @@ O sistema permite que vários clientes adicionem, listem e removam tarefas em te
 
 ---
 
-## 🧩 Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
-* Python 🐍
+* Python 
 * gRPC
 * Sockets TCP
 * Docker & Docker Compose
@@ -28,29 +28,29 @@ O sistema permite que vários clientes adicionem, listem e removam tarefas em te
 
 ---
 
-## ⚙️ Funcionalidades
+##  Funcionalidades
 
-### ✔ CRUD de Tarefas (gRPC)
+###  CRUD de Tarefas (gRPC)
 
 * Adicionar tarefa
 * Listar tarefas
 * Remover tarefa
 
-### ✔ Live Update (Sockets)
+###  Live Update (Sockets)
 
 * Notificação em tempo real quando:
 
   * Uma tarefa é adicionada
   * Uma tarefa é removida
 
-### ✔ Multiusuário
+###  Multiusuário
 
 * Vários clientes conectados simultaneamente
 * Atualizações sincronizadas
 
 ---
 
-## 🏗️ Estrutura do Projeto
+##  Estrutura do Projeto
 
 ```
 grupo7-gestor-tarefas/
@@ -72,16 +72,16 @@ grupo7-gestor-tarefas/
 
 ---
 
-## 🚀 Como Executar o Projeto
+##  Como Executar o Projeto
 
-### 🔹 Pré-requisitos
+###  Pré-requisitos
 
 * Docker instalado
 * Docker Desktop em execução
 
 ---
 
-### 🔹 Passos
+###  Passos
 
 ```bash
 docker compose up --build
@@ -89,7 +89,7 @@ docker compose up --build
 
 ---
 
-## 🧪 Funcionamento
+##  Funcionamento
 
 1. O servidor inicia (gRPC + Socket)
 2. Dois clientes são executados
@@ -98,19 +98,19 @@ docker compose up --build
 
 ---
 
-## 💡 Exemplo de Uso
+##  Exemplo de Uso
 
 ```
 Cliente 1:
 Adicionar tarefa → "Estudar Redes"
 
 Cliente 2:
-🔔 Update: Nova tarefa: Estudar Redes
+ Update: Nova tarefa: Estudar Redes
 ```
 
 ---
 
-## 📊 Comparação: gRPC vs RMI
+## Comparação: gRPC vs RMI
 
 | Critério    | gRPC            | RMI             |
 | ----------- | --------------- | --------------- |
@@ -119,13 +119,13 @@ Cliente 2:
 | Performance | Alta (binário)  | Média           |
 | Manutenção  | Fácil           | Mais complexa   |
 
-### 🧠 Conclusão
+###  Conclusão
 
 O gRPC apresenta maior flexibilidade, melhor desempenho e facilidade de manutenção devido ao uso de arquivos `.proto`, sendo mais adequado para sistemas distribuídos modernos.
 
 ---
 
-## 👨‍💻 Autor(es)
+##  Autor(es)
 
 Grupo 7 – Sistemas Distribuídos
 Lucas Mário Armando
@@ -133,12 +133,12 @@ Porfirio Aristides
 Albano Hussene 
 ---
 
-## 📅 Data de Entrega
+##  Data de Entrega
 
 07 de Maio de 2026
 
 ---
 
-## 🔗 Repositório
+## Repositório
 
 (https://github.com/lucas19700/grupo7-gestor-tarefas.git)
