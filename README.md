@@ -141,4 +141,4 @@ Albano Hussene
 
 ## 🔗 Repositório
 
-Adicionar aqui o link do GitHub após publicação.
+(https://github.com/lucas19700/grupo7-gestor-tarefas.git)
