@@ -52,28 +52,30 @@ O sistema permite que vários clientes adicionem, listem e removam tarefas em te
 
 ##  Estrutura do Projeto
 
-```
 grupo7-gestor-tarefas/
+│
+├── client/
+│   ├── client.py
+│   ├── tasks_pb2.py
+│   └── tasks_pb2_grpc.py
+│
+├── server/
+│   ├── server.py
+│   ├── tasks_pb2.py
+│   └── tasks_pb2_grpc.py
 │
 ├── proto/
 │   └── tasks.proto
 │
-├── server/
-│   └── server.py
-│
-├── client/
-│   └── client.py
-│
-├── Dockerfile.server
 ├── Dockerfile.client
+├── Dockerfile.server
 ├── docker-compose.yml
-└── README.md
-```
+├── README.md
+└── .gitignore
 
 ---
 
 ##  Como Executar o Projeto
-
 ###  Pré-requisitos
 
 * Docker instalado

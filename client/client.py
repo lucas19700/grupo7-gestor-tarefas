@@ -1,39 +1,72 @@
+import time
 import grpc
+
 import tasks_pb2
 import tasks_pb2_grpc
-import socket
-import threading
 
-# SOCKET CLIENT
-def listen_updates():
-    s = socket.socket()
-    s.connect(("server", 9000))
-    while True:
-        msg = s.recv(1024).decode()
-        print(f"\n🔔 Update: {msg}")
 
-threading.Thread(target=listen_updates, daemon=True).start()
+canal = grpc.insecure_channel('server:50051')
 
-# gRPC CLIENT
-channel = grpc.insecure_channel('server:50051')
-stub = tasks_pb2_grpc.TaskServiceStub(channel)
+stub = tasks_pb2_grpc.TaskServiceStub(canal)
 
-while True:
-    print("\n1-Adicionar\n2-Listar\n3-Deletar\n0-Sair")
-    op = input("Escolha: ")
+print("\n==============================")
+print("CLIENTE CONECTADO")
+print("==============================\n")
 
-    if op == "1":
-        titulo = input("Título: ")
-        stub.AddTask(tasks_pb2.TaskRequest(id=1, title=titulo))
 
-    elif op == "2":
-        res = stub.ListTasks(tasks_pb2.Empty())
-        for t in res.tasks:
-            print(t.id, t.title)
+tarefas = [
+    "Estudar Redes",
+    "Fazer trabalho",
+    "Configurar Docker"
+]
 
-    elif op == "3":
-        tid = int(input("ID: "))
-        stub.DeleteTask(tasks_pb2.TaskId(id=tid))
 
-    elif op == "0":
-        break
+# ADICIONAR TAREFAS
+for nome in tarefas:
+
+    stub.AddTask(
+        tasks_pb2.Task(title=nome)
+    )
+
+    print(f"Tarefa adicionada: {nome}")
+
+    time.sleep(1)
+
+
+# LISTAR TAREFAS
+print("\n==============================")
+print("LISTA DE TAREFAS")
+print("==============================\n")
+
+lista = stub.ListTasks(tasks_pb2.Empty())
+
+for tarefa in lista.tasks:
+    print(f"{tarefa.id} - {tarefa.title}")
+
+time.sleep(2)
+
+
+# REMOVER TAREFA
+stub.DeleteTask(
+    tasks_pb2.TaskId(id=2)
+)
+
+print("\nTarefa removida: 2")
+
+time.sleep(2)
+
+
+# LISTA FINAL
+print("\n==============================")
+print("LISTA FINAL")
+print("==============================\n")
+
+lista = stub.ListTasks(tasks_pb2.Empty())
+
+for tarefa in lista.tasks:
+    print(f"{tarefa.id} - {tarefa.title}")
+
+
+print("\n==============================")
+print("CLIENTE FINALIZADO")
+print("==============================\n")
